@@ -1,12 +1,12 @@
-title: AI Conference Deadlines
-description: Countdowns to top CV/NLP/ML/Robotics/AI conference deadlines
-author: Abhishek Das
+title: X-LANCE Confernce Deadlines(会议列表)
+description: X-LANCE Version of ai-deadlines.es
+author: X-LANCE Lab, SJTU
 
-domain: "aideadlin.es"
-baseurl: ""
+domain: "x-lance.sjtu.edu.cn"
+baseurl: "/deadline"
 
 twitter_hashtag: machinelearning
-github_username: paperswithcode
+github_username: hsungong
 github_repo: ai-deadlines
 
 markdown: kramdown
