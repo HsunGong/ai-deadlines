@@ -18,7 +18,7 @@
                 </div>
                 <div class="meta col-12">
                   {{ site.description }}.
-                  To add/edit a conference, <a target="_blank" href="//github.com/{{ site.github_username }}/{{ site.github_repo }}">send in a pull request</a>.
+                  To add/edit a conference, contact Xun Gong at <a target="_blank" href="//github.com/{{ site.github_username }}/{{ site.github_repo }}">Github</a> or <a href="mailto:gongxun@sjtu.edu.cn">Email</a>.
                 </div>
             </div>
             <br>
@@ -52,7 +52,7 @@
             <div class="row">
               <div class="meta col-12">
                 <span class="local-timezone-hide">
-                  Deadlines are shown in <span class="local-timezone">America/New_York</span> time.
+                  Deadlines are shown in <span class="local-timezone" style="background-color: #FFFF00">America/New_York</span> time.
                   To view them in conference website timezones, click on them.
                 </span>
               </div>
@@ -168,7 +168,7 @@
 
         {% for conf in site.data.conferences %}
         {% for sub in conf.sub %}
-        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"].toLocaleLowerCase());
+        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"]);
         {% endfor %}
         {% if conf.deadline == "TBA" %}
           $('#{{conf.id}} .timer').html("TBA");

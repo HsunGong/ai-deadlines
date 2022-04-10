@@ -1,8 +1,8 @@
-title: X-LANCE Confernce Deadlines(会议列表)
+title: Confernce Deadlines for X-LANCE
 description: X-LANCE Version of ai-deadlines.es
 author: X-LANCE Lab, SJTU
 
-domain: "x-lance.sjtu.edu.cn"
+domain: "https://x-lance.sjtu.edu.cn"
 baseurl: "/deadline"
 
 twitter_hashtag: machinelearning
