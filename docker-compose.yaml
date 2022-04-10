@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  deadline:
+    restart: always
+    image: jekyll/jekyll:3.8.5
+    ports:
+        - '10331:4000'
+    volumes:
+        - ./ai-deadlines:/srv/jekyll
+    command: >
+        sh -c "bundle install && bundle exec jekyll serve"
+    restart: always
