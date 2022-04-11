@@ -1,4 +1,5 @@
 ---
+# NOTE: UTC-12 means AoE
 
 - title: EMNLP
   year: 2022
@@ -27,7 +28,7 @@
   start: 2022-10-10
   end: 2022-10-14
   hindex: 58
-  sub: MM
+  sub: [MM, SP, CV]
   note: Mandatory abstract deadline on March 31, 2022. More info <a href='https://2022.acmmm.org/call-for-papers/'>here</a>.
 
 - title: ICMI
@@ -41,7 +42,7 @@
   start: 2022-11-07
   end: 2022-11-11
   hindex: 34
-  sub: MM
+  sub: [MM, CV]
   note: 24th ACM International Conference on Multimodal Interaction. More info <a href='https://icmi.acm.org/2022/important-dates/'>here</a>.
 
 - title: COLING
@@ -140,7 +141,7 @@
   start: 2022-05-22
   end: 2022-05-27
   hindex: 157
-  sub: NLP
+  sub: [NLP, SP]
 
 - title: LREC
   year: 2022
@@ -221,7 +222,7 @@
   id: interspeech22
   link: http://www.interspeech2022.org/
   deadline: '2022-03-21 23:59:59'
-  timezone: AoE
+  timezone: UTC-12
   place: Incheon, South Korea
   date: September, 18-22, 2022
   start: 2022-09-18

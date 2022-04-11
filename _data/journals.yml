@@ -1,0 +1,60 @@
+---
+
+- title: Speech Communication
+  id: sc
+  organization: Elsevier
+  link: https://www.journals.elsevier.com/speech-communication
+  sub: SP
+  paperslink: https://dblp.org/db/journals/speech/index.html
+  # pwclink: PaperswithCode
+
+  hindex: -1
+  note:
+
+- title: Transactions on Audio, Speech, and Language Processing
+  id: taslp
+  organization: IEEE/ACM
+  link: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10376
+  sub: [SP, NLP]
+  paperslink: https://dblp.org/db/journals/taslp/index.html
+  # pwclink: PaperswithCode
+
+  hindex: -1
+  note: 
+  - 'More related links are '
+  - '<a href="https://signalprocessingsociety.org/publications-resources/ieeeacm-transactions-audio-speech-and-language-processing/about-taslp">IEEE Signal</a>'
+  - ' and '
+  - '<a href="https://dl.acm.org/journal/taslp">ACM</a>'
+
+- title: IEEE Transactions on Multimedia
+  id: ieee_mm
+  organization: IEEE
+  link: https://dl.acm.org/journal/taslp
+  sub: [MM]
+  paperslink: https://dblp.org/db/journals/taslp/index.html
+  # pwclink: PaperswithCode
+
+  hindex: -1
+  note: 
+
+- title: ACM Transactions on Multimedia Computing, Communications, and Applications
+  id: tomm
+  organization: ACM
+  link: https://dl.acm.org/journal/tomm
+  sub: [MM]
+  paperslink: https://dblp.org/db/journals/tomccap/index.html
+  # pwclink: PaperswithCode
+
+  hindex: -1
+  note: 
+
+- title: 计算机学报
+  id: chinese_computer
+  organization: CJC
+  link: https://cjc.ict.ac.cn/
+  sub: [ML, SP, MM, NLP]
+  # paperslink:
+  # pwclink: PaperswithCode
+
+  hindex: -1
+  note: 
