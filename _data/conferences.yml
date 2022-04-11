@@ -156,14 +156,13 @@
   hindex: 38
   sub: NLP
 
-- title: IJCAI-ECAI
+- title: IJCAI-ECAI(A)
   year: 2022
   id: ijcai22
   full_name: International Joint Conference on Artificial Intelligence and European
     Conference on Artificial Intelligence
   link: https://ijcai-22.org/
   deadline: '2022-01-14 23:59:59'
-  abstract_deadline: '2022-01-07 23:59:59'
   timezone: UTC+1
   place: Vienna, Austria
   date: July 23-29, 2022
@@ -171,7 +170,163 @@
   end: 2022-07-29
   hindex: 105
   sub: ML
+  note: 6+2(+2) pages, survey track
 
+- title: CHI(A)
+  year: 2022
+  id: chi22
+  full_name: The ACM CHI Conference on Human Factors in Computing Systems is the premier international conference of Human-Computer Interaction (HCI)
+  link: https://chi2022.acm.org/
+  deadline: '2021-09-09 23:59:59'
+  timezone: UTC+0
+  place: New Orleans, LA
+  date: Apr 30-May-05, 2022
+  start: 2022-04-30
+  end: 2022-05-05
+  hindex: -1
+  sub: [HCI, NLP]
+  note: survey as support materials
+
+- title: CSCW(A)
+  year: 2022
+  id: cscw2022
+  link: https://cscw.acm.org/2022/submit/papers.html
+  deadline: '2022-01-15 23:59:00'
+  timezone: UTC-12
+  place: Virtual
+  date: April 06, 2022
+  start: 2022-04-06
+  end: 2022-04-??
+  hindex: -1
+  sub: [HCI, NLP]
+
+- title: IUI(B)
+  year: 2022
+  id: iui2022
+  link: https://iui.acm.org/2022/call_for_papers.html
+  deadline: '2021-10-08 23:59:00'
+  timezone: UTC-12
+  place: Virtual from Helsinki, Finland
+  date: March 21-25, 2022
+  start: 2022-03-21
+  end: 2022-03-25
+  hindex: -1
+  sub: [NLP, HCI]
+
+- title: ITS(B)
+  year: 2022
+  id: its2022
+  full_title: ITS2022 is the upcoming Conference of the series of Intelligent Tutoring Systems Conferences on Computer and Cognitive Sciences, Artificial Intelligence and Deep Learning in Tutoring and Education.
+  link: https://iis-international.org/its2022-bucharest-romania/
+  deadline: '2022-02-15 23:59:00'
+  timezone: UTC-12
+  place: Bucharest, Romania
+  date: June 29-30 & July 1, 2022
+  start: 2022-06-30
+  end: 2022-07-01
+  hindex: -1
+  sub: [NLP, HCI]
+  note: 8/12 pages
+
+- title: UIST(B)
+  full_title: The ACM Symposium on User Interface Software and Technology (UIST)
+  year: 2022
+  id: uist22
+  link: https://uist.acm.org/uist2022/
+  deadline: '2022-03-31 17:00:00'
+  timezone: UTC-7
+  place: Bend, Oregon, USA
+  date: Oct 29 - Nov 12, 2022
+  start: 2022-10-29
+  end: 2022-11-02
+  hindex: -1
+  sub: [NLP, HCI]
+
+- title: MobileHCI(B)
+  year: 2022
+  id: mhci22
+  link: https://mobilehci.acm.org/2022/participating/call-for-full-papers
+  deadline: '2022-02-03 23:59:00'
+  timezone: UTC-12
+  place: Vancouver, Canada
+  date: Sept. 28 - Oct. 1, 2022
+  start: 2022-09-28
+  end: 2022-10-01
+  hindex: -1
+  sub: [HCI, NLP]
+
+- title: ECSCW(B)
+  full_title: The European Conference on Computer-Supported Cooperative Work
+  year: 2022
+  id: ecscw22
+  link: https://ecscw.eusset.eu/2022/submissions/
+  deadline: '2022-03-11 23:59:00'
+  timezone: UTC-12
+  place: Coimbra, Portugal
+  date: June 27th - July 1st, 2022
+  start: 2022-06-27
+  end: 2022-07-01
+  hindex: -1
+  sub: [NLP]
+
+- title: PerCom(B)
+  full_title: International Conference on Pervasive Computing and Communications
+  year: 2022
+  id: percom22
+  link: http://www.percom.org/call-for-papers/
+  deadline: '2021-10-14 23:59:00'
+  timezone: UTC-12
+  place: Pisa, Italy
+  date: March 21-25, 2022
+  start: 2022-03-21
+  end: 2022-03-25
+  hindex: -1
+  sub: [NLP]
+
+- title: UBICOMM(B)
+  full_title: Mobile Ubiquitous Computing, Systems, Services and Technologies
+  year: 2022
+  id: ubicomm22
+  link: https://www.iaria.org/conferences2022/CfPUBICOMM22.html
+  deadline: '2022-06-02 23:59:00'
+  timezone: UTC-12
+  place: Valencia, Spain
+  date: Nov. 13-17, 2022
+  start: 2022-11-13
+  end: 2022-11-17
+  hindex: -1
+  sub: [NLP]
+  note: Deadlines differ for special tracks. Please consult the conference home page for special tracks Call for Papers (if any).
+
+# https://sigchi.org/conferences/upcoming-conferences/
+- title: UbiComp-ISWC(B)
+  full_title: ACM International Joint Conference on Pervasive and Ubiquitous Computing and ACM International Symposium on Wearable Computers
+  year: 2021
+  id: ubicomp21
+  link: https://ubicomp.org/ubicomp2021/
+  deadline: '2021-06-21 23:59:00'
+  timezone: UTC-12
+  place: Virtual
+  date: Sept. 21-26 2021
+  start: 2021-09-21
+  end: 2021-09-26
+  hindex: -1
+  sub: [HCI]
+
+- title: UbiComp(B)
+  full_title: ACM International Joint Conference on Pervasive and Ubiquitous Computing and
+  year: 2022
+  id: ubicomp22
+  link: https://dl.acm.org/conference/ubicomp
+  deadline: '2022-10-08 23:59:00'
+  timezone: UTC-12
+  place:  Cancún, Mexico
+  date: Oct. 08-13 2021
+  start: 2021-10-08
+  end: 2021-10-13
+  hindex: -1
+  sub: [HCI]
+  note: no final dates
 
 - title: NAACL
   year: 2022
