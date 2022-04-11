@@ -70,7 +70,7 @@
         {% for conf in site.data.conferences %}
         <div id="{{conf.id}}" class="ConfItem {% for sub in conf.sub %} {{sub}}-conf {% endfor %}">
           <div class="row conf-row">
-            <div class="col-6">
+            <div class="col-12 col-sm-7">
               <span class="conf-title">
                 <a title="{% if conf.full_name %}{{conf.full_name}}{% else %}Deadline{% endif %} Details"
                   href="{{site.baseurl}}/conference?id={{ conf.id }}">{{conf.title}} {{conf.year}}</a>
@@ -79,60 +79,46 @@
                 <a title="{% if conf.full_name %}{{conf.full_name}}{% else %}Deadline{% endif %} Details"
                   href="{{site.baseurl}}/conference?id={{ conf.id }}">{{conf.title}} '{{conf.year | slice: -2, 3}}</a>
               </span>
-              <span class="conf-title-icon">
-                <a title="Conference Website" href="{{conf.link}}" target="_blank"><img
-                    src="{{site.baseurl}}/static/img/203-earth.svg" class="badge-link"
-                    alt="Link to Conference Website" /></a>
-                &ZeroWidthSpace;
-                {% if conf.paperslink %}
-                <a title="Full List of Accepted Papers" href="{{conf.paperslink}}" target="_blank"><img
-                    src="{{site.baseurl}}/static/img/033-books.svg" class="badge-link"
-                    alt="Full List of Accepted Papers" /></a>
-                {% endif %}
-                &ZeroWidthSpace;
-                {% if conf.pwclink %}
-                <a title="Browse All Papers with Code" href="{{conf.pwclink}}" target="_blank">
-                  <div class="icon-inner badge-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                      class="s-ion-icon">
-                      <path
-                        d="M88 128h48v256H88zM232 128h48v256h-48zM160 144h48v224h-48zM304 144h48v224h-48zM376 128h48v256h-48z">
-                      </path>
-                      <path d="M104 104V56H16v400h88v-48H64V104zM408 56v48h40v304h-40v48h88V56z"></path>
-                    </svg></div>
-                </a>
-                {% endif %}
-                &ZeroWidthSpace;
-              </span>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-sm-5">
               <span class="timer"></span>
               <span class="timer-small"></span>
             </div>
           </div>
           <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-7">
               <div class="meta">
                 <span class="conf-date">{{conf.date}}.</span>
                 <span class="conf-place">
-                  {% if conf.place == "Online" %}
-                  <a href="#">{{conf.place}}</a>.
+                  {% if conf.place == "Online" or conf.place == "Virtual" %}
+                  <a>{{conf.place}}</a>.
                   {% else %}
                   <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>.
                   {% endif %}
                 </span>
               </div>
-              {% if conf.note %}
-              <div class="note">
-                <b>Note: </b>{{conf.note}}
+              {%if conf.rank or conf.full_title %}
+              <div class="note mt-1">
+                  <b class="border border-primary rounded-lg bg-light">CCF-{{conf.rank}}</b>
+                  {{conf.full_title}}
               </div>
+              {% endif %}
+              {%if conf.note %}
+              <div class="note"><b>Note: </b>{{conf.note}}</div>
               {% endif %}
 
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-5">
               <div class="deadline">
                 <div>Deadline:
                   <span class="deadline-time"></span>
                 </div>
+              </div>
+              <div class="conf-website" style="font-size:13px">
+                      <a title="Conference Website" href="{{conf.link}}" target="_blank">
+                          <img src="{{site.baseurl}}/static/img/203-earth.svg" class="badge-link" alt="Link to Conference Website" />
+                          Website
+                      </a>
               </div>
               <div class="calendar"></div>
             </div>
@@ -151,7 +137,7 @@
       </div>
       <div id="past_confs">
         <h1 id="events-title">Past Conferences</h1>
-        <div id="sort-order-checkbox">
+        <div id="sort-order-checkbox float-right">
           <label for="sort-order"><input type="checkbox" id="sort-order" name="sort-order" checked>Most recent
             first</label>
         </div>
@@ -161,67 +147,61 @@
       <div id="common_journals">
         <h1 id="events-title">List of Journals</h1>
         {% for conf in site.data.journals %}
-        <div id="{{conf.id}}">
-          <div class="row p-2 m-2 border-bottom">
-            <div class="col-12">
-              <div id="{{conf.id}}" class="ConfItem {% for sub in conf.sub %} {{sub}}-conf {% endfor %}">
-                <div class="row conf-row">
-                  <div class="col-sm-12 col-md-9">
-                    <span class="conf-title">
-                      <a title="{% if conf.full_name %}{{conf.full_name}}{% endif %} Details"
-                        href="#">{{conf.title}}</a>
-                    </span>
-                    <span class="conf-title-small">
-                      <a title="{% if conf.full_name %}{{conf.full_name}}{% endif %} Details"
-                        href="{{site.baseurl}}/conference?id={{ conf.id }}">{{conf.title}}</a>
-                    </span>
-                    <span class="conf-title-icon">
-                      <a title="Conference Website" href="{{conf.link}}" target="_blank"><img
-                          src="{{site.baseurl}}/static/img/203-earth.svg" class="badge-link"
-                          alt="Link to Conference Website" /></a>
-                    </span>
+        <div id="{{conf.id}}" class="ConfItem {% for sub in conf.sub %} {{sub}}-conf {%
+             endfor %} pt-2 pb-2 mt-2 mb-2 border-bottom">
+          <div class="row conf-row">
+            <div class="col-12 col-sm-7">
+              <span class="conf-title">
+                <a title="{% if conf.full_name %}{{conf.full_name}}{% endif %} Details"
+                  href="#">{{conf.title}}</a>
+              </span>
+              <span class="conf-title-small">
+                <a title="{% if conf.full_name %}{{conf.full_name}}{% endif %} Details"
+                  href="{{site.baseurl}}/conference?id={{ conf.id }}">{{conf.title}}</a>
+              </span>
 
-                    {% if conf.note %}
-                    <div class="note">
-                      <b>Note: </b>{{conf.note}}
-                    </div>
-                    {% endif %}
-                  </div>
-                  <div class="col-sm-12 col-md-3">
-                    <div>Organization: {{ conf.organization }}</div>
-                    {% if conf.paperslink %}
-                    <small>Accepted Papers: 
-                      <a title="Full List of Accepted Papers" href="{{conf.paperslink}}" target="_blank">
-                        <img src="{{site.baseurl}}/static/img/033-books.svg" class="badge-link" alt="books" />
-                      </a>
-                    </small>
-                    {% endif %}
-                    {% if conf.pwclink %}
-                    <small>Browse All Papers with Code:
-                      <a title="Browse All Papers with Code" href="{{conf.paperslink}}" target="_blank">
-                        <div class="icon-inner badge-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                          class="s-ion-icon">
-                          <path
-                            d="M88 128h48v256H88zM232 128h48v256h-48zM160 144h48v224h-48zM304 144h48v224h-48zM376 128h48v256h-48z">
-                          </path>
-                          <path d="M104 104V56H16v400h88v-48H64V104zM408 56v48h40v304h-40v48h88V56z"></path>
-                        </svg></div>
-                      </a>
-                    </small>
-                    {% endif %}
-                  </div>
-                </div>
-
-              <div class="row">
-                <div class="col-12">
-                  {% for sub in conf.sub %}
-                  <span title="Click to only show {{sub}} conferences" data-sub="{{sub}}"
-                    class="conf-sub {{sub}}-tag"></span>
-                  {% endfor %}
-                </div>
+              {%if conf.rank or conf.full_title %}
+              <div class="note mt-1">
+                  <b class="border border-primary rounded-lg bg-light">CCF-{{conf.rank}}</b>
+                  {{conf.full_title}}
               </div>
-              </div>
+              {% endif %}
+              {%if conf.note %}
+              <div class="note"><b>Note: </b>{{conf.note}}</div>
+              {% endif %}
             </div>
+            <div class="col-12 col-sm-5">
+              <div>Organization: {{ conf.organization }}</div>
+              <div class="conf-website" style="font-size:13px">
+                <a title="Conference Website" href="{{conf.link}}" target="_blank">
+                    <img src="{{site.baseurl}}/static/img/203-earth.svg" class="badge-link" alt="Link to Conference Website" />
+                    Website
+                </a>
+              </div>
+              {% if conf.paperslink %}
+              <div style="font-size:13px">Accepted Papers: 
+                <a title="Full List of Accepted Papers" href="{{conf.paperslink}}" target="_blank">
+                  <img src="{{site.baseurl}}/static/img/033-books.svg" class="badge-link" alt="books" />
+                </a>
+              </div>
+              {% endif %}
+              {% if conf.pwclink %}
+              <div style="font-size:13px">Browse All Papers with Code:
+                <a title="Browse All Papers with Code" href="{{conf.pwclink}}" target="_blank">
+                  <div class="icon-inner badge-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="s-ion-icon"><path d="M88 128h48v256H88zM232 128h48v256h-48zM160 144h48v224h-48zM304 144h48v224h-48zM376 128h48v256h-48z"></path><path d="M104 104V56H16v400h88v-48H64V104zM408 56v48h40v304h-40v48h88V56z"></path></svg>
+                  </div>
+                </a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row col-12">
+            {% for sub in conf.sub %}
+            <span title="Click to only show {{sub}} conferences" data-sub="{{sub}}"
+              class="conf-sub {{sub}}-tag"></span>
+            {% endfor %}
           </div>
         </div>
         {% endfor %}

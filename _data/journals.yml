@@ -11,6 +11,28 @@
   hindex: -1
   note:
 
+- title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  id: tpami
+  rank: A
+  organization: IEEE
+  link: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34
+  sub: [ML]
+  paperslink: https://dblp.org/db/journals/pami/index.html
+  # pwclink: PaperswithCode
+  note: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)
+  hindex: -1
+
+- title: Transactions of the Association for Computational Linguistics
+  id: tacl
+  rank: A
+  organization: IEEE
+  link: https://transacl.org/
+  sub: [NLP]
+  paperslink: https://transacl.org/index.php/tacl/issue/archive
+  # pwclink: PaperswithCode
+
+  hindex: -1
+
 - title: Transactions on Audio, Speech, and Language Processing
   id: taslp
   organization: IEEE/ACM
