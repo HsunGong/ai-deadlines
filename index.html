@@ -10,6 +10,7 @@
 
 <body>
   {% include header.html %}
+
   <div class="container">
     <div class="page-header">
       <div class="row">
@@ -161,11 +162,11 @@
         <h1 id="events-title">List of Journals</h1>
         {% for conf in site.data.journals %}
         <div id="{{conf.id}}">
-          <div class="row">
+          <div class="row p-2 m-2 border-bottom">
             <div class="col-12">
               <div id="{{conf.id}}" class="ConfItem {% for sub in conf.sub %} {{sub}}-conf {% endfor %}">
                 <div class="row conf-row">
-                  <div class="col-6">
+                  <div class="col-sm-12 col-md-9">
                     <span class="conf-title">
                       <a title="{% if conf.full_name %}{{conf.full_name}}{% endif %} Details"
                         href="#">{{conf.title}}</a>
@@ -186,17 +187,17 @@
                     </div>
                     {% endif %}
                   </div>
-                  <div class="col-6">
+                  <div class="col-sm-12 col-md-3">
                     <div>Organization: {{ conf.organization }}</div>
                     {% if conf.paperslink %}
-                    <div class="note">Accepted Papers: 
+                    <small>Accepted Papers: 
                       <a title="Full List of Accepted Papers" href="{{conf.paperslink}}" target="_blank">
                         <img src="{{site.baseurl}}/static/img/033-books.svg" class="badge-link" alt="books" />
                       </a>
-                    </div>
+                    </small>
                     {% endif %}
                     {% if conf.pwclink %}
-                    <div class="note">Browse All Papers with Code:
+                    <small>Browse All Papers with Code:
                       <a title="Browse All Papers with Code" href="{{conf.paperslink}}" target="_blank">
                         <div class="icon-inner badge-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                           class="s-ion-icon">
@@ -206,7 +207,7 @@
                           <path d="M104 104V56H16v400h88v-48H64V104zM408 56v48h40v304h-40v48h88V56z"></path>
                         </svg></div>
                       </a>
-                    </div>
+                    </small>
                     {% endif %}
                   </div>
                 </div>
@@ -226,36 +227,42 @@
         {% endfor %}
       </div>
     </div>
-    <footer>
-      {% include footer.html %}
-    </footer>
-    <br><br>
+
+    {% include footer.html %}
+    <br/>
   </div>
   <script type="text/javascript" charset="utf-8">
-    $(function () {
-      // Make sure this is >= no. of subs
-      // Currently not used
-      var colors = ['#341f97', '#ee5253', '#2e86de',
-        '#ff9f43', '#10ac84', '#222f3e']
+    $(function() {
+        // Make sure this is >= no. of subs
+        // Currently not used
+        var colors = ['#341f97', '#ee5253', '#2e86de',
+                      '#ff9f43', '#10ac84', '#222f3e']
 
+        
+        {% include load_data.js %}
+        {% include utils.js %}
+        {% include multiselect_handler.js %}
 
-      {% include load_data.js %}
-      {% include utils.js %}
-      {% include multiselect_handler.js %}
+        addUtcTimeZones();
 
-      addUtcTimeZones();
+        try {
+          var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          $('.local-timezone').text(local_timezone.toString());
+        }
+        catch(err) {
+          $('.local-timezone-hide').hide();
+        }
 
-      try {
-        var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        $('.local-timezone').text(local_timezone.toString());
-      }
-      catch (err) {
-        $('.local-timezone-hide').hide();
-      }
+        // journals
+        {% for conf in site.data.journals %}
+          {% for sub in conf.sub %}
+          $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"]);
+          {% endfor %}
+        {% endfor %}
 
-      {% for conf in site.data.conferences %}
+        {% for conf in site.data.conferences %}
         {% for sub in conf.sub %}
-        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"]);
+        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"].toLocaleLowerCase());
         {% endfor %}
         {% if conf.deadline == "TBA" %}
           $('#{{conf.id}} .timer').html("TBA");
@@ -267,12 +274,12 @@
 
           // render countdown timer
           $('#{{conf.id}} .timer').countdown(confDate.toDate(), function (event) {
-            $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
+              $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
           });
 
           // render countdown timer small
           $('#{{conf.id}} .timer-small').countdown(confDate.toDate(), function (event) {
-            $(this).html(event.strftime('%Dd %H:%M:%S'));
+              $(this).html(event.strftime('%Dd %H:%M:%S'));
           });
 
           // convert deadline to local timezone
@@ -280,13 +287,13 @@
             var localConfDate = moment.tz(confDate, local_timezone);
             $('#{{conf.id}} .deadline-time').html(localConfDate.toString());
           }
-          catch (err) {
+          catch(err) {
             console.log("Error converting to local timezone.");
           }
 
           // add calendar button
           var myCalendar = createCalendarFromObject({
-            id: '{{conf.id}}',
+            id:  '{{conf.id}}',
             title: '{{conf.title}} {{conf.year}} deadline',
             date: confDate.toDate(),
             duration: 60,
@@ -306,45 +313,37 @@
             $('#{{conf.id}} .calendar').remove();
           }
         {% endif %}
-      {% endfor %}
-
-      // journals
-      {% for conf in site.data.journals %}
-        {% for sub in conf.sub %}
-        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"]);
         {% endfor %}
-      {% endfor %}
 
-      // Sort coming_confs and past_confs
-      $("#coming_confs .ConfItem").sort(function (a, b) {
-        return $(b).attr('diff') - $(a).attr('diff');
-      }).appendTo($("#coming_confs"));
+        // Sort coming_confs and past_confs
+        $("#coming_confs .ConfItem").sort(function (a, b) {
+          return $(b).attr('diff') - $(a).attr('diff');
+        }).appendTo($("#coming_confs"));
 
-      $("#sort-order-checkbox input").on("click", function () {
-        if ($("#sort-order-checkbox input").is(":checked")) {
-          $("#past_confs .ConfItem").sort(function (a, b) {
-            return $(a).attr('diff') - $(b).attr('diff');
-          }).appendTo($("#past_confs"));
-        } else {
-          $("#past_confs .ConfItem").sort(function (a, b) {
-            return $(b).attr('diff') - $(a).attr('diff');
-          }).appendTo($("#past_confs"));
-        }
-      });
+        $("#sort-order-checkbox input").on("click", function() {
+          if ($("#sort-order-checkbox input").is(":checked")) {
+            $("#past_confs .ConfItem").sort(function (a, b) {
+              return $(a).attr('diff') - $(b).attr('diff');
+            }).appendTo($("#past_confs"));
+          } else {
+            $("#past_confs .ConfItem").sort(function (a, b) {
+              return $(b).attr('diff') - $(a).attr('diff');
+            }).appendTo($("#past_confs"));
+          }
+        });
 
-      {% include handle_url_retrieval.js %}
+        {% include handle_url_retrieval.js %}
 
-      // Event handler on sub badge click
-      $('.conf-sub').click(function (e) {
-        var csub = $(this).data('sub');
-        subs = [csub];
-        $("#subject-select").multiselect('deselect', all_subs);
-        $("#subject-select").multiselect('select', subs);
-        update_filtering({ subs: subs, all_subs: all_subs });
-      });
+        // Event handler on sub badge click
+        $('.conf-sub').click(function (e) {
+            var csub = $(this).data('sub');
+            subs = [csub];
+            $("#subject-select").multiselect('deselect', all_subs);
+            $("#subject-select").multiselect('select', subs);
+            update_filtering({ subs: subs, all_subs: all_subs});
+        });
 
     });
-
     {% include google_analytics.js %}
   </script>
 </body>
