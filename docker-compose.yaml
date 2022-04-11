@@ -11,3 +11,4 @@ services:
     command: >
         sh -c "bundle install && bundle exec jekyll serve"
     restart: always
+
