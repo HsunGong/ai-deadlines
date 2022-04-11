@@ -114,7 +114,7 @@
               <div class="meta">
                 <span class="conf-date">{{conf.date}}.</span>
                 <span class="conf-place">
-                  {% if conf.place == "Online" %}
+                  {% if conf.place == "Online" || conf.place == "Virtual" %}
                   <a href="#">{{conf.place}}</a>.
                   {% else %}
                   <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>.
@@ -123,6 +123,8 @@
               </div>
               {% if conf.note %}
               <div class="note">
+                {{conf.rank}}
+                  {% if conf.rank % }<div class="border border-primary rounded">CCF-{{conf.rank}}</div>{% endif %}
                 <b>Note: </b>{{conf.note}}
               </div>
               {% endif %}
@@ -183,6 +185,7 @@
 
                     {% if conf.note %}
                     <div class="note">
+                      {% if conf.rank % }<div class="border border-primary rounded">CCF-{{conf.rank}}</div>{% endif %}
                       <b>Note: </b>{{conf.note}}
                     </div>
                     {% endif %}
